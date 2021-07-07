@@ -5,7 +5,7 @@ using Holism.Blog.Models;
 
 namespace Holism.Blog.Api.Controllers
 {
-    public class PostController : Controller<Post, Post>
+    public class PostController : ReadController<Post>
     {
         public override ReadBusiness<Post> ReadBusiness => new PostBusiness();
     }

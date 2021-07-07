@@ -1,4 +1,4 @@
-﻿using Holism.Ticketing.Business;
+﻿using Holism.Blog.Business;
 using System;
 
 namespace Holism.Blog.AdHoc

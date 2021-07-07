@@ -1,8 +1,8 @@
 ﻿using Holism.Business;
 using Holism.DataAccess;
 using Holism.Framework;
-using Holism.Ticketing.DataAccess;
-using Holism.Ticketing.Models;
+using Holism.Blog.DataAccess;
+using Holism.Blog.Models;
 using Microsoft.VisualBasic;
 using MoreLinq;
 using System;

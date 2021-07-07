@@ -5,8 +5,7 @@ using Holism.Blog.Models;
 
 namespace Holism.Blog.DataAccess
 {
-    //[DbConfigurationType(typeof(EntityFrameworkConfiguration))]
-    public class PostDbContext : DatabaseContext
+    public class BlogContext : DatabaseContext
     {
         public override string ConnectionStringName => "Blog";
 
@@ -17,7 +16,6 @@ namespace Holism.Blog.DataAccess
         {
             modelBuilder.Entity<Post>().Ignore(i => i.RelatedItems);
             modelBuilder.Entity<Voice>().Ignore(i => i.RelatedItems);
-			// modelBuilder.Entity<Post>().Property(i => i.Date).HasComputedColumnSql("([dbo].[ToPersianDateTime]([Date]))");
             base.OnModelCreating(modelBuilder);
         }
     }

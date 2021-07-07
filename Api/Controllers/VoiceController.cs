@@ -1,9 +1,9 @@
 ﻿using Holism.Api.Controllers;
 using Holism.Business;
-using Holism.Ticketing.Business;
-using Holism.Ticketing.Models;
+using Holism.Blog.Business;
+using Holism.Blog.Models;
 
-namespace Holism.Ticketing.Api.Controllers
+namespace Holism.Blog.Api.Controllers
 {
     public class VoiceController : ReadController<Voice>
     {
