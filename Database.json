@@ -1,0 +1,25 @@
+{
+    "name": "Blog",
+    "tables": [
+        {
+            "name": "Posts",
+            "hasGuid": true,
+            "columns": [
+                {
+                    "name": "Title"
+                },
+                {
+                    "name": "Summary"
+                },
+                {
+                    "name": "TimeToRead",
+                    "type": "int",
+                    "isNullable": true
+                },
+                {
+                    "name": "Date"
+                }
+            ]
+        }
+    ]
+}

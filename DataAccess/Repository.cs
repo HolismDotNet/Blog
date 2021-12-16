@@ -1,24 +1,12 @@
-using Holism.Blog.Models;
-using Holism.DataAccess;
+namespace Holism.Blog.DataAccess;
 
-namespace Holism.Blog.DataAccess
+public class Repository
 {
-    public class Repository
+    public static Repository<Post> Post
     {
-        public static Repository<Post> Post
+        get
         {
-            get
-            {
-                return new Holism.DataAccess.Repository<Post>(new BlogContext());
-            }
-        }
-        
-        public static Repository<Voice> Voice
-        {
-            get
-            {
-                return new Holism.DataAccess.Repository<Voice>(new BlogContext());
-            }
+            return new Repository<Post>(new BlogContext());
         }
     }
 }
