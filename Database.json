@@ -18,6 +18,31 @@
                 },
                 {
                     "name": "Date"
+                },
+                {
+                    "name": "StateId"
+                }
+            ]
+        },
+        {
+            "name": "PostHtmls",
+            "columns": [
+                {
+                    "name": "Html"
+                }
+            ]
+        },
+        {
+            "name": "States",
+            "isEnum": true,
+            "enumItems": [
+                {
+                    "key": "Publish",
+                    "value": 1
+                },
+                {
+                    "key": "Draft",
+                    "value": 2
                 }
             ]
         }
