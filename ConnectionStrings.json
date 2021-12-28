@@ -1,3 +1,4 @@
 {
-  "Blog": "data source=database,1433; initial catalog=Blog; user id=SA; password=lksU2o412f7tBj58t07B;application name=Blog;"
+  "Blog": "data source=database,1433; initial catalog=Blog; user id=SA; password=lksU2o412f7tBj58t07B;application name=Blog;",
+  "MariaBlog": "server=maria;user id=root;password=IC1joYMLZTT0fQMJ5qcz;database=Blog"
 }
