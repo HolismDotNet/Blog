@@ -26,6 +26,7 @@
         },
         {
             "name": "PostHtmls",
+            "oneToOneWith": "Posts",
             "columns": [
                 {
                     "name": "Html"
