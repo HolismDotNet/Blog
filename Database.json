@@ -2,7 +2,7 @@
     "name": "Blog",
     "tables": [
         {
-            "name": "Posts",
+            "name": "BlogPosts",
             "hasGuid": true,
             "columns": [
                 {
@@ -25,7 +25,7 @@
             ]
         },
         {
-            "name": "PostContents",
+            "name": "BlogPostContents",
             "oneToOneWith": "Posts",
             "columns": [
                 {

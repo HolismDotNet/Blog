@@ -1,8 +1,8 @@
 namespace Holism.Blog.Models;
 
-public class Post : IGuidEntity
+public class BlogPost : IGuidEntity
 {
-    public Post()
+    public BlogPost()
     {
         RelatedItems = new ExpandoObject();
     }
