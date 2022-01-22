@@ -13,7 +13,7 @@ public class BlogPostBusiness : Business<BlogPost, BlogPost>
         item.RelatedItems.TimeAgo = UniversalDateTime.Now.Subtract(item.UtcDate).Humanize();
         if (item.LastUpdateUtcDate.HasValue)
         {
-            item.RelatedItems.LastUpdateTimeAgo = UniversalDateTime.Now.Subtract(item.LastUpdateUtcDate).Humanize();
+            item.RelatedItems.LastUpdateTimeAgo = UniversalDateTime.Now.Subtract(item.LastUpdateUtcDate.Value).Humanize();
         }
         item.RelatedItems.PostStateKey = item.PostStateId.CastTo<PostState>().ToString();
         base.ModifyItemBeforeReturning(item);
