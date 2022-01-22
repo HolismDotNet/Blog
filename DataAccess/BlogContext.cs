@@ -1,12 +1,12 @@
-namespace Holism.Blog.DataAccess;
+namespace Blog;
 
 public class BlogContext : DatabaseContext
 {
     public override string ConnectionStringName => "Blog";
 
-    public DbSet<BlogPostContent> BlogPostContents { get; set; }
+    public DbSet<PostContent> PostContents { get; set; }
 
-    public DbSet<BlogPost> BlogPosts { get; set; }
+    public DbSet<Post> Posts { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

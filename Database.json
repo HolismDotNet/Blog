@@ -2,7 +2,7 @@
     "name": "Blog",
     "tables": [
         {
-            "name": "BlogPosts",
+            "name": "Posts",
             "hasGuid": true,
             "hasSlug": true,
             "columns": [
@@ -29,12 +29,12 @@
                     "isNullable": true
                 },
                 {
-                    "name": "PostStateId"
+                    "name": "StateId"
                 }
             ]
         },
         {
-            "name": "BlogPostContents",
+            "name": "PostContents",
             "oneToOneWith": "Posts",
             "columns": [
                 {
@@ -43,15 +43,15 @@
             ]
         },
         {
-            "name": "PostStates",
+            "name": "States",
             "isEnum": true,
             "enumItems": [
                 {
-                    "key": "Published",
+                    "key": "Draft",
                     "value": 1
                 },
                 {
-                    "key": "Draft",
+                    "key": "Published",
                     "value": 2
                 }
             ]

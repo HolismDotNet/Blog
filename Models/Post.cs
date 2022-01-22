@@ -1,8 +1,8 @@
-namespace Holism.Blog.Models;
+namespace Blog;
 
-public class BlogPost : IGuidEntity
+public class Post : IGuidEntity
 {
-    public BlogPost()
+    public Post()
     {
         RelatedItems = new ExpandoObject();
     }
@@ -23,7 +23,7 @@ public class BlogPost : IGuidEntity
 
     public DateTime? LastUpdateUtcDate { get; set; }
 
-    public long PostStateId { get; set; }
+    public long StateId { get; set; }
 
     public dynamic RelatedItems { get; set; }
 }

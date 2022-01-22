@@ -1,8 +1,8 @@
-namespace Holism.Blog.AdminApi;
+namespace Blog;
 
-public class BlogPostController : Controller<BlogPost, BlogPost>
+public class BlogPostController : Controller<Blog.Post, Blog.Post>
 {
-    public override ReadBusiness<BlogPost> ReadBusiness => new BlogPostBusiness();
+    public override ReadBusiness<Blog.Post> ReadBusiness => new Blog.PostBusiness();
     
-    public override Business<BlogPost, BlogPost> Business => new BlogPostBusiness();
+    public override Business<Blog.Post, Blog.Post> Business => new Blog.PostBusiness();
 }
