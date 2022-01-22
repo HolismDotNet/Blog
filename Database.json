@@ -10,6 +10,9 @@
                     "name": "Title"
                 },
                 {
+                    "name": "Slug"
+                },
+                {
                     "name": "Summary",
                     "isNullabke": true
                 },
