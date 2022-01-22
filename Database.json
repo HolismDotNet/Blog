@@ -4,6 +4,7 @@
         {
             "name": "BlogPosts",
             "hasGuid": true,
+            "hasSlug": true,
             "columns": [
                 {
                     "name": "Title"
@@ -19,6 +20,10 @@
                 },
                 {
                     "name": "Date"
+                },
+                {
+                    "name": "LastUpdateDate",
+                    "isNullabke": true
                 },
                 {
                     "name": "PostStateId"

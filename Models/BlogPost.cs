@@ -19,6 +19,8 @@ public class BlogPost : IGuidEntity
 
     public DateTime UtcDate { get; set; }
 
+    public DateTime LastUpdateUtcDate { get; set; }
+
     public long PostStateId { get; set; }
 
     public dynamic RelatedItems { get; set; }
