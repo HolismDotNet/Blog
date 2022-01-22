@@ -2,11 +2,11 @@ namespace Holism.Blog.DataAccess;
 
 public class Repository
 {
-    public static Repository<PostHtml> PostHtml
+    public static Repository<PostContent> PostContent
     {
         get
         {
-            return new Repository<PostHtml>(new BlogContext());
+            return new Repository<PostContent>(new BlogContext());
         }
     }
 

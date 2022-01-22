@@ -1,9 +1,9 @@
 namespace Holism.Blog.Models
 {
-    public enum State
+    public enum PostState
     {
         Unknwon = 0,
-        Publish = 1,
+        Published = 1,
         Draft = 2
     }
 }

@@ -1,9 +1,10 @@
-﻿namespace Holism.Blog.Business;
-{
-    public class PostBusiness : Business<Post, Post>
-    {
-        protected override Repository<Post> WriteRepository => Repository.Post;
+﻿using Holism.Blog.DataAccess;
 
-        protected override ReadRepository<Post> ReadRepository => Repository.Post;
-    }
+namespace Holism.Blog.Business;
+
+public class PostBusiness : Business<Post, Post>
+{
+    protected override Repository<Post> WriteRepository => Repository.Post;
+
+    protected override ReadRepository<Post> ReadRepository => Repository.Post;
 }

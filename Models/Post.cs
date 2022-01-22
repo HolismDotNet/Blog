@@ -19,7 +19,7 @@ public class Post : IGuidEntity
 
     public DateTime UtcDate { get; set; }
 
-    public long StateId { get; set; }
+    public long PostStateId { get; set; }
 
     public dynamic RelatedItems { get; set; }
 }

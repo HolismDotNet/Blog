@@ -20,25 +20,25 @@
                     "name": "Date"
                 },
                 {
-                    "name": "StateId"
+                    "name": "PostStateId"
                 }
             ]
         },
         {
-            "name": "PostHtmls",
+            "name": "PostContents",
             "oneToOneWith": "Posts",
             "columns": [
                 {
-                    "name": "Html"
+                    "name": "Content"
                 }
             ]
         },
         {
-            "name": "States",
+            "name": "PostStates",
             "isEnum": true,
             "enumItems": [
                 {
-                    "key": "Publish",
+                    "key": "Published",
                     "value": 1
                 },
                 {

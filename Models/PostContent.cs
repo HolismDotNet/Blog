@@ -1,15 +1,15 @@
 namespace Holism.Blog.Models;
 
-public class PostHtml : IEntity
+public class PostContent : IEntity
 {
-    public PostHtml()
+    public PostContent()
     {
         RelatedItems = new ExpandoObject();
     }
 
     public long Id { get; set; }
 
-    public string Html { get; set; }
+    public string Content { get; set; }
 
     public dynamic RelatedItems { get; set; }
 }
