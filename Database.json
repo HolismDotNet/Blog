@@ -9,7 +9,8 @@
                     "name": "Title"
                 },
                 {
-                    "name": "Summary"
+                    "name": "Summary",
+                    "isNullabke": true
                 },
                 {
                     "name": "TimeToRead",
