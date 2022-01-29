@@ -2,6 +2,8 @@
 
 public class PostBusiness : Business<Blog.Post, Blog.Post>
 {
+    public const string EntityType = "BlogPost";
+
     protected override Repository<Blog.Post> WriteRepository => Blog.Repository.Post;
 
     protected override ReadRepository<Blog.Post> ReadRepository => Blog.Repository.Post;
@@ -14,6 +16,7 @@ public class PostBusiness : Business<Blog.Post, Blog.Post>
             item.RelatedItems.LastUpdateTimeAgo = UniversalDateTime.Now.Subtract(item.LastUpdateUtcDate.Value).Humanize();
         }
         item.RelatedItems.StateKey = item.StateId.ToEnum<State>().ToString();
+        item.RelatedItems.EntityType = EntityType;
         base.ModifyItemBeforeReturning(item);
     }
 
