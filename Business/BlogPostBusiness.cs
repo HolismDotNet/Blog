@@ -13,7 +13,7 @@ public class PostBusiness : Business<Blog.Post, Blog.Post>
         {
             item.RelatedItems.LastUpdateTimeAgo = UniversalDateTime.Now.Subtract(item.LastUpdateUtcDate.Value).Humanize();
         }
-        item.RelatedItems.StateKey = item.StateId.CastTo<State>().ToString();
+        item.RelatedItems.StateKey = item.StateId.ToEnum<State>().ToString();
         base.ModifyItemBeforeReturning(item);
     }
 
