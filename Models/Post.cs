@@ -19,6 +19,8 @@ public class Post : IGuidEntity, ISlug
 
     public int? TimeToRead { get; set; }
 
+    public Guid? ImageGuid { get; set; }
+
     public DateTime UtcDate { get; set; }
 
     public DateTime? LastUpdateUtcDate { get; set; }

@@ -4,6 +4,8 @@ public class PostBusiness : Business<Blog.Post, Blog.Post>
 {
     public const string EntityType = "BlogPost";
 
+    public const string PostImagesContainerName = "blogpostimages";
+
     protected override Repository<Blog.Post> WriteRepository => Blog.Repository.Post;
 
     protected override ReadRepository<Blog.Post> ReadRepository => Blog.Repository.Post;
@@ -31,5 +33,20 @@ public class PostBusiness : Business<Blog.Post, Blog.Post>
     {
         model.LastUpdateUtcDate = UniversalDateTime.Now;
         base.PreUpdate(model);
+    }
+
+    public Blog.Post ChangeImage(long postId, byte[] bytes)
+    {
+        var post = Get(postId);
+        if (post.ImageGuid.HasValue)
+        {
+            Storage.DeleteImage(PostImagesContainerName, post.ImageGuid.Value);
+        }
+        var fullHdImage = ImageHelper.MakeImageThumbnail(Resolution.FullHd, null, bytes);
+        post.ImageGuid = Guid.NewGuid();
+        Storage.UploadImage(fullHdImage.GetBytes(), post.ImageGuid.Value, PostImagesContainerName);
+        WriteRepository.Update(post);
+        post = Get(postId);
+        return post;
     }
 }
