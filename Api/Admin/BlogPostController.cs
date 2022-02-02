@@ -6,6 +6,13 @@ public class BlogPostController : Controller<Blog.Post, Blog.Post>
     
     public override Business<Blog.Post, Blog.Post> Business => new Blog.PostBusiness();
 
+    [HttpPost]
+    public Blog.Post ToggleCommentAcceptance(long id)
+    {
+        var post = new Blog.PostBusiness().ToggleCommentAcceptance(id);
+        return post;
+    }
+
     [FileUploadChecker]
     [HttpPost]
     public Blog.Post SetImage(IFormFile file)

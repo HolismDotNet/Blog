@@ -26,6 +26,13 @@
                     "isNullable": true
                 },
                 {
+                    "name": "AcceptsComment",
+                    "type": "boolean",
+                    "isNullable": true,
+                    "hasDefault": true,
+                    "defaultSqlText": "1"
+                },
+                {
                     "name": "Date"
                 },
                 {

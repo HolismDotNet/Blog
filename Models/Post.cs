@@ -21,6 +21,8 @@ public class Post : IGuidEntity, ISlug
 
     public Guid? ImageGuid { get; set; }
 
+    public bool? AcceptsComment { get; set; }
+
     public DateTime UtcDate { get; set; }
 
     public DateTime? LastUpdateUtcDate { get; set; }

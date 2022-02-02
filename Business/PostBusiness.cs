@@ -10,6 +10,14 @@ public class PostBusiness : Business<Blog.Post, Blog.Post>
 
     protected override ReadRepository<Blog.Post> ReadRepository => Blog.Repository.Post;
 
+    public Blog.Post ToggleCommentAcceptance(long id)
+    {
+        var post = Get(id);
+        post.AcceptsComment = post.AcceptsComment == null ? true : !post.AcceptsComment;
+        Update(post);
+        return post;
+    }
+
     protected override void ModifyItemBeforeReturning(Blog.Post item)
     {
         item.RelatedItems.TimeAgo = UniversalDateTime.Now.Subtract(item.UtcDate).Humanize();
