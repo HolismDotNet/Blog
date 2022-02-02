@@ -27,6 +27,7 @@ public class PostBusiness : Business<Blog.Post, Blog.Post>
         }
         item.RelatedItems.StateKey = item.StateId.ToEnum<State>().ToString();
         item.RelatedItems.EntityType = EntityType;
+        item.RelatedItems.ImageUrl = Storage.GetImageUrl(PostImagesContainerName, item.ImageGuid ?? Guid.Empty);
         base.ModifyItemBeforeReturning(item);
     }
 
