@@ -1,6 +1,6 @@
 namespace Blog;
 
-public class Post : IGuidEntity, ISlug
+public class Post : IEntity, IGuid, ISlug
 {
     public Post()
     {
