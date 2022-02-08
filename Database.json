@@ -67,5 +67,20 @@
                 }
             ]
         }
+    ],
+    "views": [
+        {
+            "name": "PostViews",
+            "query": [
+                "select",
+                "  p.*,",
+                "  (",
+                "    select group_concat(TagName)",
+                "    from Taxonomy.TagItemViews tiv",
+                "    where tiv.EntityGuid = p.Guid",
+                "  ) as TagsCsv",
+                "from Posts p"
+            ]
+        }
     ]
 }

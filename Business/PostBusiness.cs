@@ -1,6 +1,6 @@
 ﻿namespace Blog;
 
-public class PostBusiness : Business<Blog.Post, Blog.Post>
+public class PostBusiness : Business<Blog.PostView, Blog.Post>
 {
     public const string EntityType = "BlogPost";
 
@@ -8,17 +8,17 @@ public class PostBusiness : Business<Blog.Post, Blog.Post>
 
     protected override Repository<Blog.Post> WriteRepository => Blog.Repository.Post;
 
-    protected override ReadRepository<Blog.Post> ReadRepository => Blog.Repository.Post;
+    protected override ReadRepository<Blog.PostView> ReadRepository => Blog.Repository.PostView;
 
-    public Blog.Post ToggleCommentAcceptance(long id)
+    public Blog.PostView ToggleCommentAcceptance(long id)
     {
-        var post = Get(id);
+        var post = WriteRepository.Get(id);
         post.AcceptsComment = post.AcceptsComment == null ? true : !post.AcceptsComment;
         Update(post);
-        return post;
+        return Get(post.Id);
     }
 
-    protected override void ModifyItemBeforeReturning(Blog.Post item)
+    protected override void ModifyItemBeforeReturning(Blog.PostView item)
     {
         item.RelatedItems.TimeAgo = UniversalDateTime.Now.Subtract(item.UtcDate).Humanize();
         if (item.LastUpdateUtcDate.HasValue)
@@ -44,9 +44,9 @@ public class PostBusiness : Business<Blog.Post, Blog.Post>
         base.PreUpdate(model);
     }
 
-    public Blog.Post ChangeImage(long postId, byte[] bytes)
+    public Blog.PostView ChangeImage(long postId, byte[] bytes)
     {
-        var post = Get(postId);
+        var post = WriteRepository.Get(postId);
         if (post.ImageGuid.HasValue)
         {
             Storage.DeleteImage(PostImagesContainerName, post.ImageGuid.Value);
@@ -55,7 +55,6 @@ public class PostBusiness : Business<Blog.Post, Blog.Post>
         post.ImageGuid = Guid.NewGuid();
         Storage.UploadImage(fullHdImage.GetBytes(), post.ImageGuid.Value, PostImagesContainerName);
         WriteRepository.Update(post);
-        post = Get(postId);
-        return post;
+        return Get(postId);
     }
 }

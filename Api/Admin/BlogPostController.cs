@@ -1,13 +1,13 @@
 namespace Blog;
 
-public class BlogPostController : Controller<Blog.Post, Blog.Post>
+public class BlogPostController : Controller<Blog.PostView, Blog.Post>
 {
-    public override ReadBusiness<Blog.Post> ReadBusiness => new Blog.PostBusiness();
+    public override ReadBusiness<Blog.PostView> ReadBusiness => new Blog.PostBusiness();
     
-    public override Business<Blog.Post, Blog.Post> Business => new Blog.PostBusiness();
+    public override Business<Blog.PostView, Blog.Post> Business => new Blog.PostBusiness();
 
     [HttpPost]
-    public Blog.Post ToggleCommentAcceptance(long id)
+    public Blog.PostView ToggleCommentAcceptance(long id)
     {
         var post = new Blog.PostBusiness().ToggleCommentAcceptance(id);
         return post;
@@ -15,7 +15,7 @@ public class BlogPostController : Controller<Blog.Post, Blog.Post>
 
     [FileUploadChecker]
     [HttpPost]
-    public Blog.Post SetImage(IFormFile file)
+    public Blog.PostView SetImage(IFormFile file)
     {
         var postId = Request.Query["postId"];
         if (postId.Count == 0)

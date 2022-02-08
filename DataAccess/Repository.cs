@@ -17,4 +17,12 @@ public class Repository
             return new Repository<Blog.Post>(new BlogContext());
         }
     }
+
+    public static Repository<Blog.PostView> PostView
+    {
+        get
+        {
+            return new Repository<Blog.PostView>(new BlogContext());
+        }
+    }
 }
