@@ -1,6 +1,6 @@
 namespace Blog;
 
-public class BlogPostController : ReadController<Blog.Post>
+public class BlogPostController : ReadController<Blog.PostView>
 {
-    public override ReadBusiness<Blog.Post> ReadBusiness => new Blog.PostBusiness();
+    public override ReadBusiness<Blog.PostView> ReadBusiness => new Blog.PostBusiness();
 }
