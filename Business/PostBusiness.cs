@@ -2,7 +2,7 @@
 
 public class PostBusiness : Business<Blog.PostView, Blog.Post>
 {
-    public const string EntityType = "BlogPost";
+    public override string EntityType => "BlogPost";
 
     public const string PostImagesContainerName = "blogpostimages";
 
