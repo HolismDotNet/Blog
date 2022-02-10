@@ -4,8 +4,6 @@ public class PostBusiness : Business<Blog.PostView, Blog.Post>
 {
     public override string EntityType => "BlogPost";
 
-    public const string PostImagesContainerName = "blogpostimages";
-
     protected override Repository<Blog.Post> WriteRepository => Blog.Repository.Post;
 
     protected override ReadRepository<Blog.PostView> ReadRepository => Blog.Repository.PostView;
@@ -27,7 +25,7 @@ public class PostBusiness : Business<Blog.PostView, Blog.Post>
         }
         item.RelatedItems.StateKey = item.StateId.ToEnum<State>().ToString();
         item.RelatedItems.EntityType = EntityType;
-        item.RelatedItems.ImageUrl = Storage.GetImageUrl(PostImagesContainerName, item.ImageGuid ?? Guid.Empty);
+        item.RelatedItems.ImageUrl = Storage.GetImageUrl(ContainerName, item.ImageGuid ?? Guid.Empty);
         base.ModifyItemBeforeReturning(item);
     }
 
@@ -49,11 +47,11 @@ public class PostBusiness : Business<Blog.PostView, Blog.Post>
         var post = WriteRepository.Get(postId);
         if (post.ImageGuid.HasValue)
         {
-            Storage.DeleteImage(PostImagesContainerName, post.ImageGuid.Value);
+            Storage.DeleteImage(ContainerName, post.ImageGuid.Value);
         }
         var fullHdImage = ImageHelper.MakeImageThumbnail(Resolution.FullHd, null, bytes);
         post.ImageGuid = Guid.NewGuid();
-        Storage.UploadImage(fullHdImage.GetBytes(), post.ImageGuid.Value, PostImagesContainerName);
+        Storage.UploadImage(fullHdImage.GetBytes(), post.ImageGuid.Value, ContainerName);
         WriteRepository.Update(post);
         return Get(postId);
     }
