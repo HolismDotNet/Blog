@@ -2,27 +2,27 @@ namespace Blog;
 
 public class Repository
 {
-    public static Repository<Blog.PostContent> PostContent
+    public static Write<Blog.PostContent> PostContent
     {
         get
         {
-            return new Repository<Blog.PostContent>(new BlogContext());
+            return new Write<Blog.PostContent>(new BlogContext());
         }
     }
 
-    public static Repository<Blog.Post> Post
+    public static Write<Blog.Post> Post
     {
         get
         {
-            return new Repository<Blog.Post>(new BlogContext());
+            return new Write<Blog.Post>(new BlogContext());
         }
     }
 
-    public static Repository<Blog.PostView> PostView
+    public static Write<Blog.PostView> PostView
     {
         get
         {
-            return new Repository<Blog.PostView>(new BlogContext());
+            return new Write<Blog.PostView>(new BlogContext());
         }
     }
 }

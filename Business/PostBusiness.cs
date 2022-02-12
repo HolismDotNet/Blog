@@ -4,13 +4,13 @@ public class PostBusiness : Business<Blog.PostView, Blog.Post>
 {
     public override string EntityType => "BlogPost";
 
-    protected override Repository<Blog.Post> WriteRepository => Blog.Repository.Post;
+    protected override Write<Blog.Post> Write => Blog.Repository.Post;
 
-    protected override ReadRepository<Blog.PostView> ReadRepository => Blog.Repository.PostView;
+    protected override Read<Blog.PostView> Read => Blog.Repository.PostView;
 
     public Blog.PostView ToggleCommentAcceptance(long id)
     {
-        var post = WriteRepository.Get(id);
+        var post = Write.Get(id);
         post.AcceptsComment = post.AcceptsComment == null ? true : !post.AcceptsComment;
         Update(post);
         return Get(post.Id);
@@ -44,7 +44,7 @@ public class PostBusiness : Business<Blog.PostView, Blog.Post>
 
     public Blog.PostView ChangeImage(long postId, byte[] bytes)
     {
-        var post = WriteRepository.Get(postId);
+        var post = Write.Get(postId);
         if (post.ImageGuid.HasValue)
         {
             Storage.DeleteImage(ContainerName, post.ImageGuid.Value);
@@ -52,7 +52,7 @@ public class PostBusiness : Business<Blog.PostView, Blog.Post>
         var fullHdImage = ImageHelper.MakeImageThumbnail(Resolution.FullHd, null, bytes);
         post.ImageGuid = Guid.NewGuid();
         Storage.UploadImage(fullHdImage.GetBytes(), post.ImageGuid.Value, ContainerName);
-        WriteRepository.Update(post);
+        Write.Update(post);
         return Get(postId);
     }
 }
