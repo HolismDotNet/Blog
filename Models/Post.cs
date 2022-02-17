@@ -13,8 +13,6 @@ public class Post : IEntity, IGuid, ISlug
 
     public string Title { get; set; }
 
-    public string Slug { get; set; }
-
     public string Summary { get; set; }
 
     public int? TimeToRead { get; set; }
@@ -28,6 +26,8 @@ public class Post : IEntity, IGuid, ISlug
     public DateTime? LastUpdateUtcDate { get; set; }
 
     public long StateId { get; set; }
+
+    public string Slug { get; set; }
 
     public dynamic RelatedItems { get; set; }
 }

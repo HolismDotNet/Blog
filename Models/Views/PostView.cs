@@ -19,15 +19,15 @@ public class PostView : IEntity, IGuid, ISlug
 
     public int? TimeToRead { get; set; }
 
-    public Guid? ImageGuid { get; set; }
-
-    public bool? AcceptsComment { get; set; }
-
     public DateTime UtcDate { get; set; }
 
     public DateTime? LastUpdateUtcDate { get; set; }
 
     public long StateId { get; set; }
+
+    public Guid? ImageGuid { get; set; }
+
+    public bool? AcceptsComment { get; set; }
 
     public string TagsCsv { get; set; }
 
