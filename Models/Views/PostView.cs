@@ -13,8 +13,6 @@ public class PostView : IEntity, IGuid, ISlug
 
     public string Title { get; set; }
 
-    public string Slug { get; set; }
-
     public string Summary { get; set; }
 
     public int? TimeToRead { get; set; }
@@ -28,6 +26,8 @@ public class PostView : IEntity, IGuid, ISlug
     public DateTime? LastUpdateUtcDate { get; set; }
 
     public long StateId { get; set; }
+
+    public string Slug { get; set; }
 
     public string TagsCsv { get; set; }
 
