@@ -10,9 +10,6 @@
                     "name": "Title"
                 },
                 {
-                    "name": "Slug"
-                },
-                {
                     "name": "Summary",
                     "isNullable": true
                 },
