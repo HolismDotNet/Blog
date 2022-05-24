@@ -9,17 +9,19 @@ public class BlogController : HolismController
     public int? PageNumber { get; set; }
 
     [BindProperty(SupportsGet=true)]
-    public string Category { get; set; }
+    public string Hierarchy { get; set; }
 
     [BindProperty(SupportsGet=true)]
     public string Tag { get; set; }
+
+    public string CanonicalUrl { get; set; }
 
     [HttpGet]
     public object Data()
     {
         dynamic data = new ExpandoObject();
         data.Posts = GetPosts();
-        data.Categories = GetCategories();
+        data.Hierarchies = GetHierarchies();
         data.Tags = GetTags();
         data.Seo = GetSeo();
         return data;
@@ -40,10 +42,10 @@ public class BlogController : HolismController
         return posts;
     }
 
-    public List<HierarchyView> GetCategories()
+    public List<HierarchyView> GetHierarchies()
     {
-        var categories = new HierarchyBusiness().GetTree(new Blog.PostBusiness().EntityType);
-        return categories;
+        var hierarchies = new HierarchyBusiness().GetTree(new Blog.PostBusiness().EntityType);
+        return hierarchies;
     }
 
     public List<Tag> GetTags()
@@ -55,6 +57,7 @@ public class BlogController : HolismController
     public object GetSeo()
     {
         var seo = new ParametersObject();
+        CanonicalUrl = "/blog";
         return seo;
     }
 }
