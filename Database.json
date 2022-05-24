@@ -73,7 +73,7 @@
                 "  p.*,",
                 "  (",
                 "    select group_concat(TagName)",
-                "    from Taxonomy.TagItemViews tiv",
+                "    from Taxonomy.EntityTagViews tiv",
                 "    where tiv.EntityGuid = p.Guid",
                 "  ) as TagsCsv",
                 "from Posts p"
