@@ -68,7 +68,7 @@ public class BlogController : HolismController
 
     public object GetSeo()
     {
-        var seo = new ParametersObject();//new PathParameterBusiness().Get(Request.GetEncodedPathAndQuery());
+        var seo = new PathParameterBusiness().Get(Request.GetEncodedPathAndQuery()).CastTo<ParametersObject>();
         CanonicalUrl = "/blog";
         if (seo != null)
         {
