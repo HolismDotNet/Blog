@@ -16,6 +16,19 @@ public class PostBusiness : Business<Blog.PostView, Blog.Post>
         return Get(post.Id);
     }
 
+    public Blog.PostView ChangeState(long id, long newStateId)
+    {
+        var post = Write.Get(id);
+        if (post.StateId == newStateId)
+        {
+            return Get(post.Id);
+        }
+        newStateId.Ensure().CanBeCastTo<Blog.State>();
+        post.StateId = newStateId;
+        Update(post);
+        return Get(post.Id);
+    }
+
     protected override void ModifyItemBeforeReturning(Blog.PostView item)
     {
         item.RelatedItems.TimeAgo = UniversalDateTime.Now.Subtract(item.UtcDate).Humanize();

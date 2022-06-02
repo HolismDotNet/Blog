@@ -13,6 +13,13 @@ public class BlogPostController : Controller<Blog.PostView, Blog.Post>
         return post;
     }
 
+    [HttpPost]
+    public Blog.PostView ChangeState(long id, long newEnumId)
+    {
+        var post = new Blog.PostBusiness().ChangeState(id, newEnumId);
+        return post;
+    }
+
     [FileUploadChecker]
     [HttpPost]
     public Blog.PostView SetImage(IFormFile file)
