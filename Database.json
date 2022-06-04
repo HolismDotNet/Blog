@@ -2,6 +2,20 @@
     "name": "Blog",
     "tables": [
         {
+            "name": "Authors",
+            "hasGuid": true,
+            "columns": [
+                {
+                    "name": "ContactGuid"
+                },
+                {
+                    "name": "IsDefault",
+                    "type": "boolean",
+                    "nullable": true
+                }
+            ]
+        },
+        {
             "name": "Posts",
             "hasGuid": true,
             "hasSlug": true,
@@ -11,21 +25,21 @@
                 },
                 {
                     "name": "Summary",
-                    "isNullable": true
+                    "nullable": true
                 },
                 {
                     "name": "TimeToRead",
                     "type": "int",
-                    "isNullable": true
+                    "nullable": true
                 },
                 {
                     "name": "ImageGuid",
-                    "isNullable": true
+                    "nullable": true
                 },
                 {
                     "name": "AcceptsComment",
                     "type": "boolean",
-                    "isNullable": true,
+                    "nullable": true,
                     "hasDefault": true,
                     "defaultSqlText": "1"
                 },
@@ -34,7 +48,7 @@
                 },
                 {
                     "name": "LastUpdateDate",
-                    "isNullable": true
+                    "nullable": true
                 },
                 {
                     "name": "StateId"
