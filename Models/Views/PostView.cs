@@ -29,6 +29,8 @@ public class PostView : IEntity, IGuid, ISlug
 
     public string Slug { get; set; }
 
+    public long? AuthorId { get; set; }
+
     public string TagsCsv { get; set; }
 
     public dynamic RelatedItems { get; set; }

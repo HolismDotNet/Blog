@@ -4,6 +4,7 @@
         {
             "name": "Authors",
             "hasGuid": true,
+            "hasSlug": true,
             "columns": [
                 {
                     "name": "ContactGuid"
@@ -11,7 +12,8 @@
                 {
                     "name": "IsDefault",
                     "type": "boolean",
-                    "nullable": true
+                    "nullable": true,
+                    "unique": true
                 }
             ]
         },
@@ -20,6 +22,10 @@
             "hasGuid": true,
             "hasSlug": true,
             "columns": [
+                {
+                    "name": "AuthorId",
+                    "nullable": true
+                },
                 {
                     "name": "Title"
                 },

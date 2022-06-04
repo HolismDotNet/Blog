@@ -11,6 +11,8 @@ public class Post : IEntity, IGuid, ISlug
 
     public Guid Guid { get; set; }
 
+    public long? AuthorId { get; set; }
+
     public string Title { get; set; }
 
     public string Summary { get; set; }

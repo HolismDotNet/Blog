@@ -2,6 +2,14 @@ namespace Blog;
 
 public class Repository
 {
+    public static Write<Blog.Author> Author
+    {
+        get
+        {
+            return new Write<Blog.Author>(new BlogContext());
+        }
+    }
+
     public static Write<Blog.PostContent> PostContent
     {
         get
