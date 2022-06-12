@@ -1,0 +1,44 @@
+{
+    "texts": [
+        {
+            "text": "Blog",
+            "translations": [
+                {
+                    "fa": "وبلاگ"
+                }
+            ]
+        },
+        {
+            "text": "Posts",
+            "translations": [
+                {
+                    "fa": "پست ها"
+                }
+            ]
+        },
+        {
+            "text": "Comments",
+            "translations": [
+                {
+                    "fa": "کامنت ها"
+                }
+            ]
+        },
+        {
+            "text": "Categories",
+            "translations": [
+                {
+                    "fa": "دسته بندی ها"
+                }
+            ]
+        },
+        {
+            "text": "Tags",
+            "translations": [
+                {
+                    "fa": "برچسب ها"
+                }
+            ]
+        }
+    ]
+}
