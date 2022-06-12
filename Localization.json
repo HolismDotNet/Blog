@@ -13,7 +13,8 @@
             "text": "Posts",
             "translations": [
                 {
-                    "fa": "پست ها"
+                    "locale": "fa",
+                    "translation": "پست ها"
                 }
             ]
         },
@@ -21,7 +22,8 @@
             "text": "Comments",
             "translations": [
                 {
-                    "fa": "کامنت ها"
+                    "locale": "fa",
+                    "translation": "کامنت ها"
                 }
             ]
         },
@@ -29,7 +31,8 @@
             "text": "Categories",
             "translations": [
                 {
-                    "fa": "دسته بندی ها"
+                    "locale": "fa",
+                    "translation": "دسته بندی ها"
                 }
             ]
         },
@@ -37,7 +40,8 @@
             "text": "Tags",
             "translations": [
                 {
-                    "fa": "برچسب ها"
+                    "locale": "fa",
+                    "translation": "برچسب ها"
                 }
             ]
         }
