@@ -11,6 +11,8 @@ public class PostView : IEntity, IGuid, ISlug
 
     public Guid Guid { get; set; }
 
+    public long? AuthorId { get; set; }
+
     public string Title { get; set; }
 
     public string Summary { get; set; }
@@ -28,8 +30,6 @@ public class PostView : IEntity, IGuid, ISlug
     public long StateId { get; set; }
 
     public string Slug { get; set; }
-
-    public long? AuthorId { get; set; }
 
     public string TagsCsv { get; set; }
 
