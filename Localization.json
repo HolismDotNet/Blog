@@ -5,5 +5,19 @@
             "Draft": "پیش نویس",
             "Published": "منتشر شده"
         }
+    },
+    {
+        "locale": "ar",
+        "translations": {
+            "Draft": "مسودة",
+            "Published": "نشرت"
+        }
+    },
+    {
+        "locale": "ru",
+        "translations": {
+            "Draft": "Черновик",
+            "Published": "Опубликовано"
+        }
     }
 ]
