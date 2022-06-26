@@ -8,6 +8,13 @@ public class PostBusiness : Business<Blog.PostView, Blog.Post>
 
     protected override Read<Blog.PostView> Read => Blog.Repository.PostView;
 
+    protected override Func<Sort> DefaultSort => () => new Sort
+    {
+        Property = nameof(Blog.PostView.LastUpdateUtcDate),
+        Direction = SortDirection.Descending
+    };
+
+
     public Blog.PostView ToggleCommentAcceptance(long id)
     {
         var post = Write.Get(id);
@@ -45,6 +52,7 @@ public class PostBusiness : Business<Blog.PostView, Blog.Post>
     protected override void PreCreation(Blog.Post model)
     {
         model.UtcDate = UniversalDateTime.Now;
+        model.LastUpdateUtcDate = model.UtcDate;
         model.StateId = (int)Blog.State.Draft;
         base.PreCreation(model);
     }
