@@ -14,7 +14,6 @@ public class PostBusiness : Business<Blog.PostView, Blog.Post>
         Direction = SortDirection.Descending
     };
 
-
     public Blog.PostView ToggleCommentAcceptance(long id)
     {
         var post = Write.Get(id);
