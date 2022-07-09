@@ -14,14 +14,6 @@ public class PostBusiness : Business<Blog.PostView, Blog.Post>
         Direction = SortDirection.Descending
     };
 
-    public Blog.PostView ToggleCommentAcceptance(long id)
-    {
-        var post = Write.Get(id);
-        post.AcceptsComment = post.AcceptsComment == null ? true : !post.AcceptsComment;
-        Update(post);
-        return Get(post.Id);
-    }
-
     public Blog.PostView ChangeState(long id, long newStateId)
     {
         var post = Write.Get(id);
@@ -60,19 +52,5 @@ public class PostBusiness : Business<Blog.PostView, Blog.Post>
     {
         model.LastUpdateUtcDate = UniversalDateTime.Now;
         base.PreUpdate(model);
-    }
-
-    public Blog.PostView ChangeImage(long postId, byte[] bytes)
-    {
-        var post = Write.Get(postId);
-        if (post.ImageGuid.HasValue)
-        {
-            Storage.DeleteImage(ContainerName, post.ImageGuid.Value);
-        }
-        var fullHdImage = ImageHelper.MakeImageThumbnail(Resolution.FullHd, null, bytes);
-        post.ImageGuid = Guid.NewGuid();
-        Storage.UploadImage(fullHdImage.GetBytes(), post.ImageGuid.Value, ContainerName);
-        Write.Update(post);
-        return Get(postId);
     }
 }
