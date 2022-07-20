@@ -53,4 +53,25 @@ public class PostBusiness : Business<Blog.PostView, Blog.Post>
         model.LastUpdateUtcDate = UniversalDateTime.Now;
         base.PreUpdate(model);
     }
+
+    public List<Blog.PostView> GetLatest(int count = 5)
+    {
+        List<Blog.PostView> posts = (List<Blog.PostView>)Cache.Get("LatestBlogPosts");
+        if (posts != null)
+        {
+            return posts;
+        }
+        posts = Read.All.OrderByDescending(i => i.LastUpdateUtcDate).Take(5).ToList();
+        ModifyListBeforeReturning(posts);
+        return posts;
+    }
+
+    public Dictionary<string, object> LoadCache()
+    {
+        var posts = Read.All.OrderByDescending(i => i.LastUpdateUtcDate).Take(20).ToList();
+        ModifyListBeforeReturning(posts);
+        var cache = new Dictionary<string, object>();
+        cache.Add("LatestBlogPosts", posts);
+        return cache;
+    }
 }
