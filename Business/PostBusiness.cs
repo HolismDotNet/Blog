@@ -61,7 +61,7 @@ public class PostBusiness : Business<Blog.PostView, Blog.Post>
         {
             return posts;
         }
-        posts = Read.All.OrderByDescending(i => i.LastUpdateUtcDate).Take(5).ToList();
+        posts = Read.All.OrderByDescending(i => i.LastUpdateUtcDate).Take(count).ToList();
         ModifyListBeforeReturning(posts);
         return posts;
     }
