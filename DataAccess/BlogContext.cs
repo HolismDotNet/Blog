@@ -10,6 +10,8 @@ public class BlogContext : DatabaseContext
 
     public DbSet<Blog.Post> Posts { get; set; }
 
+    public DbSet<Blog.PostView> PostViews { get; set; }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
