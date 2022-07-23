@@ -25,12 +25,4 @@ public class Repository
             return new Write<Blog.Post>(new BlogContext());
         }
     }
-
-    public static Write<Blog.PostView> PostView
-    {
-        get
-        {
-            return new Write<Blog.PostView>(new BlogContext());
-        }
-    }
 }
